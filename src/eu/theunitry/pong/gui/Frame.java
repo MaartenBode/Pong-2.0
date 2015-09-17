@@ -15,10 +15,10 @@ public class Frame
 	public Frame()
 	{
 		frame = new JFrame();
-		graphicsPanel = new GraphicsPanel();
+		graphicsPanel = new GraphicsPanel(frame);
 		
 		this.init();
-		frame.add(graphicsPanel.panel);
+		frame.add(graphicsPanel);
 		frame.setVisible(true);
 	}
 	

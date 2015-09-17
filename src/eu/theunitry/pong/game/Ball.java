@@ -26,10 +26,10 @@ public class Ball {
 	public void update() {
 		this.x += this.velx;
 		this.y += this.vely;
-		if (y < 0 || y > frame.getContentPane().getHeight()) {
+		if (y < 0 || y > this.frame.getContentPane().getHeight()) {
 			this.vely *= -1;
 		}
-		this.y = Math.max(0, Math.min(y, frame.getContentPane().getHeight()));
+		this.y = Math.max(0, Math.min(y, this.frame.getContentPane().getHeight()));
 		this.hitbox.move((int) x, (int) y);
 	}
 	
@@ -60,8 +60,8 @@ public class Ball {
 	}
 	
 	public void paintComponent(Graphics g) {
-		g.drawOval((int) x, (int) y, size, size);
 		g.setColor(color);
+		g.fillOval((int) x, (int) y, size, size);
 	}
 	
 }
