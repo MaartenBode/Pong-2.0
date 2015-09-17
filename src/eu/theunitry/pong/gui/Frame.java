@@ -8,14 +8,14 @@ public class Frame
 	public GraphicsPanel graphicsPanel;
 	
 	private static final String NAME = "Pong 2.0";
-	private static final int HEIGHT = 500;
-	private static final int WIDTH = 700;
+	public static final int HEIGHT = 500;
+	public static final int WIDTH = 700;
 	
 	
 	public Frame()
 	{
 		frame = new JFrame();
-		graphicsPanel = new GraphicsPanel(frame);
+		graphicsPanel = new GraphicsPanel(this);
 		
 		this.init();
 		frame.add(graphicsPanel);
@@ -30,4 +30,5 @@ public class Frame
 		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 	}
+	
 }

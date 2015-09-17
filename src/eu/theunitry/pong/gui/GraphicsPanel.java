@@ -1,5 +1,6 @@
 package eu.theunitry.pong.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -10,19 +11,28 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import eu.theunitry.pong.game.Ball;
+import eu.theunitry.pong.game.ScoreBoardListener;
 import eu.theunitry.pong.timer.GameTimer;
 
 public class GraphicsPanel extends JPanel implements ActionListener
 {
 	public Timer timer;
 	public Ball ball;
+	public Frame frame;
+	public ScoreBoard scoreboard;
 	
-	public GraphicsPanel(JFrame frame)
+	public GraphicsPanel(Frame frame)
 	{
 		this.setBackground(Color.white);
-		this.ball = new Ball(frame, 5, 5, 1, 1, 200);
+		this.scoreboard = new ScoreBoard();
+		
+		this.frame = frame;
+		this.add(this.scoreboard, BorderLayout.NORTH);
 
 		new GameTimer(this);
+		
+		this.ball = new Ball(this.frame, -1, -1, 50);
+		
 
 	}
 	
@@ -41,7 +51,10 @@ public class GraphicsPanel extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		this.updateBall();
+		new ScoreBoardListener(scoreboard, ball);
+
 		this.repaint();
+		
 	}
 	
 	public void updateBall()
