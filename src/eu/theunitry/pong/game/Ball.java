@@ -26,7 +26,7 @@ public class Ball {
 	public void update() {
 		this.x += this.velx;
 		this.y += this.vely;
-		if (y < 0 || y > frame.getContentPane().getHeight()) {
+		if (y < 0 || y > frame.getContentPane().getHeight() - size) {
 			this.vely *= -1;
 		}
 		this.y = Math.max(0, Math.min(y, frame.getContentPane().getHeight() - size));
