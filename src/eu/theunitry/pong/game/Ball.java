@@ -20,7 +20,7 @@ public class Ball {
 		this.setVel(velx, vely);
 		this.size = size;
 		this.color = new Color(247, 8, 67);
-		this.hitbox = new Rectangle();
+		this.hitbox = new Rectangle((int) x, (int) y, size, size);
 	}
 	
 	public void update() {
@@ -30,6 +30,7 @@ public class Ball {
 			this.vely *= -1;
 		}
 		this.y = Math.max(0, Math.min(y, frame.getContentPane().getHeight()));
+		this.hitbox.move((int) x, (int) y);
 	}
 	
 	public void setPos(double x, double y) {
