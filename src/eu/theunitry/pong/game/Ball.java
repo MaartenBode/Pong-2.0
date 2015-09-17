@@ -61,7 +61,7 @@ public class Ball {
 	
 	public void paintComponent(Graphics g) {
 		g.setColor(color);
-		g.drawOval((int) x, (int) y, size, size);
+		g.fillOval((int) x, (int) y, size, size);
 	}
 	
 }
