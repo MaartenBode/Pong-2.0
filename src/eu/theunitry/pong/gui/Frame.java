@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 public class Frame
 {
 	public JFrame frame;
+	public GraphicsPanel graphicsPanel;
 	
 	private static final String NAME = "Pong 2.0";
 	private static final int HEIGHT = 500;
@@ -14,7 +15,11 @@ public class Frame
 	public Frame()
 	{
 		frame = new JFrame();
+		graphicsPanel = new GraphicsPanel();
+		
 		this.init();
+		frame.add(graphicsPanel.panel);
+		frame.setVisible(true);
 	}
 	
 	public void init()
@@ -23,6 +28,6 @@ public class Frame
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
+		frame.setResizable(false);
 	}
 }
