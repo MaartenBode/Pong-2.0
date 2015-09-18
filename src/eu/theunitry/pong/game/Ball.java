@@ -11,11 +11,11 @@ import eu.theunitry.pong.gui.Frame;
 public class Ball {
 
 	private int size;
-	private double x, y, velx, vely;
+	public double x, y, velx, vely;
 	private int frameHeight, frameWidth;
 	private Color color;
 	private Frame frame;
-	private Rectangle hitbox;
+	public Rectangle hitbox;
 	
 	public Ball(Frame frame, double velx, double vely, int size) {
 		this.frame = frame;
