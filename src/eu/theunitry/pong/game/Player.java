@@ -64,8 +64,6 @@ public class Player {
 		if(hitbox.intersects(ball.hitbox))
 		{
 			ball.velx *= -1;
-			ball.velx+= 0.1;
-			ball.vely+= 0.1;
 		}
 	}
 	
