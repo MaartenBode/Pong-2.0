@@ -23,7 +23,7 @@ public class Ball {
 		this.frameWidth = frame.WIDTH;
 		this.frameHeight = frame.HEIGHT;
 		this.x = (this.frameWidth / 2) - (this.size / 2);
-		this.y = (this.frameHeight / 2) - (this.size / 2) - 20;
+		this.y = (this.frameHeight / 2) - (this.size / 2);
 		this.setPos(this.x, this.y);
 		this.setVel(velx, vely);
 		this.color = new Color(247, 8, 67);
@@ -61,7 +61,7 @@ public class Ball {
 	}
 	
 	public boolean scoredRight() {
-		if (x > frame.frame.getContentPane().getWidth()) {
+		if (x > frame.WIDTH) {
 			return true;
 		} else {
 			return false;

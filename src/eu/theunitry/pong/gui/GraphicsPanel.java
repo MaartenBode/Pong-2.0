@@ -31,7 +31,7 @@ public class GraphicsPanel extends JPanel implements ActionListener
 
 		new GameTimer(this);
 		
-		this.ball = new Ball(this.frame, -1, -1, 50);
+		this.ball = new Ball(this.frame, 1, -1, 50);
 		
 
 	}

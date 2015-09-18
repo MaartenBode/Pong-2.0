@@ -4,8 +4,8 @@ import eu.theunitry.pong.gui.ScoreBoard;
 
 public class ScoreBoardListener
 {
-	private int score1;
-	private int score2;
+	private int score1 = 0;
+	private int score2 = 0;
 	
 	public ScoreBoardListener(ScoreBoard scoreboard, Ball ball)
 	{
