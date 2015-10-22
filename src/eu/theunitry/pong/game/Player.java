@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.Objects;
 
 public class Player {
 
@@ -41,11 +42,11 @@ public class Player {
 	public void move(String direction)
 	{
 		int distance = 20;
-		if(direction == "UP")
+		if(Objects.equals(direction, "UP"))
 		{
-			if (this.y >= 20) this.y -= distance;
+			if (this.y >= distance) this.y -= distance;
 		}
-		if(direction == "DOWN")
+		if(Objects.equals(direction, "DOWN"))
 		{
 			if (this.y <= 360) this.y += distance;
 		}
