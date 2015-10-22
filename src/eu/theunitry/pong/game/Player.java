@@ -43,11 +43,11 @@ public class Player {
 		int distance = 20;
 		if(direction == "UP")
 		{
-			this.y -= distance;
+			if (this.y >= 20) this.y -= distance;
 		}
 		if(direction == "DOWN")
 		{
-			this.y += distance;
+			if (this.y <= 360) this.y += distance;
 		}
 	}
 	
