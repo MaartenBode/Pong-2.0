@@ -50,8 +50,10 @@ public class Ball {
 		this.x = (this.frameWidth / 2) - (this.size / 2);
 		this.y = (this.frameHeight / 2) - (this.size / 2);
 		this.setPos(this.x, this.y);
-		this.setVel(velx, vely);
+		this.setVel(-1, 1);
 		this.hitbox = new Rectangle((int) x, (int) y, size, size);
+		this.left = true;
+		this.right = true;
 	}
 	
 	public void setPos(double x, double y) {
@@ -83,6 +85,18 @@ public class Ball {
 	public void paintComponent(Graphics g) {
 		g.setColor(color);
 		g.fillOval((int) x, (int) y, size, size);
+	}
+	
+	public double getVelX() {
+		return velx;
+	}
+	
+	public double getVelY() {
+		return vely;
+	}
+	
+	public int getSize() {
+		return size;
 	}
 	
 }

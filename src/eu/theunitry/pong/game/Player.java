@@ -55,7 +55,7 @@ public class Player {
 			this.vely = distance;
 		} else
 		{
-			this.vely = 0;;
+			this.vely = 0;
 		}
 	}
 	
@@ -84,11 +84,23 @@ public class Player {
 				ball.left = true;
 				ball.right = false;
 				ball.velx *= -1;
+				ball.setVel(ball.getVelX() * 1.1, ball.getVelY() * 1.1);
+				if (ball.y + ball.getSize() / 2 < this.y + height / 2) {
+					ball.vely = -Math.abs(ball.vely);
+				} else {
+					ball.vely = Math.abs(ball.vely);
+				}
 			}
 			if (position == "right" && ball.left ) {
 				ball.left = false;
 				ball.right = true;
 				ball.velx *= -1;
+				ball.setVel(ball.getVelX() * 1.1, ball.getVelY() * 1.1);
+				if (ball.y + ball.getSize() / 2 < this.y + height / 2) {
+					ball.vely = -Math.abs(ball.vely);
+				} else {
+					ball.vely = Math.abs(ball.vely);
+				}
 			}
 		}
 		
