@@ -25,8 +25,11 @@ public class ControlManager implements KeyListener
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getKeyCode() == 81) this.player1.move("");
+		if(e.getKeyCode() == 65) this.player1.move("");
 		
+		if(e.getKeyCode() == 79) this.player2.move("");
+		if(e.getKeyCode() == 76) this.player2.move("");
 	}
 
 	@Override

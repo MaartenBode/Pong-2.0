@@ -11,7 +11,7 @@ import eu.theunitry.pong.gui.Frame;
 public class Player {
 
 	private Color color;
-	public double x, y;
+	public double x, y, vely;
 	private int width, height;
 	private Rectangle hitbox;
 	private Ball ball;
@@ -45,16 +45,18 @@ public class Player {
 	
 	public void move(String direction)
 	{
-		int distance = 20;
+		int distance = 2;
 		if(Objects.equals(direction, "UP"))
 		{
-			if (this.y >= distance) this.y -= distance;
+			this.vely = -distance;
 		}
-		if(Objects.equals(direction, "DOWN"))
+		else if (Objects.equals(direction, "DOWN"))
 		{
-			if (this.y <= 360) this.y += distance;
+			this.vely = distance;
+		} else
+		{
+			this.vely = 0;;
 		}
-		this.y = Math.max(0, Math.min(this.y, this.frame.frame.getContentPane().getHeight() - this.height));
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -67,6 +69,8 @@ public class Player {
 	
 	public void update()
 	{
+		this.y += this.vely;
+		this.y = Math.max(0, Math.min(this.y, this.frame.frame.getContentPane().getHeight() - this.height));
 		hitbox = new Rectangle((int) x, (int) y, width, height);
 
 		if(hitbox.intersects(ball.hitbox))
@@ -82,6 +86,16 @@ public class Player {
 				ball.velx *= -1;
 			}
 		}
+	}
+	
+	public void setVelY(double vely)
+	{
+		this.vely = y;
+	}
+	
+	public double getVelY()
+	{
+		return vely;
 	}
 	
 }
