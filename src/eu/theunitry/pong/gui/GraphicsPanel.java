@@ -36,8 +36,8 @@ public class GraphicsPanel extends JPanel implements ActionListener
 		new GameTimer(this);
 		
 		this.ball = new Ball(this.frame, -1, 1, 50);
-		this.player1 = new Player(this.ball, "left");
-		this.player2 = new Player(this.ball, "right");
+		this.player1 = new Player(this.frame, this.ball, "left");
+		this.player2 = new Player(this.frame, this.ball, "right");
 		
 		this.addKeyListener(new ControlManager(player1, player2));
 

@@ -6,6 +6,8 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.Objects;
 
+import eu.theunitry.pong.gui.Frame;
+
 public class Player {
 
 	private Color color;
@@ -14,8 +16,10 @@ public class Player {
 	private Rectangle hitbox;
 	private Ball ball;
 	private String position;
+	private Frame frame;
 	
-	public Player(Ball ball, String position) {
+	public Player(Frame frame, Ball ball, String position) {
+		this.frame = frame;
 		this.ball = ball;
 		this.position = position;
 		this.setPosition();
@@ -50,6 +54,7 @@ public class Player {
 		{
 			if (this.y <= 360) this.y += distance;
 		}
+		this.y = Math.max(0, Math.min(this.y, this.frame.frame.getContentPane().getHeight() - this.height));
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -58,13 +63,24 @@ public class Player {
 		this.update();
 	}
 	
+
+	
 	public void update()
 	{
 		hitbox = new Rectangle((int) x, (int) y, width, height);
 
 		if(hitbox.intersects(ball.hitbox))
 		{
-			ball.velx *= -1;
+			if (position == "left" && ball.right ) {
+				ball.left = true;
+				ball.right = false;
+				ball.velx *= -1;
+			}
+			if (position == "right" && ball.left ) {
+				ball.left = false;
+				ball.right = true;
+				ball.velx *= -1;
+			}
 		}
 	}
 	

@@ -16,6 +16,7 @@ public class Ball {
 	private Color color;
 	private Frame frame;
 	public Rectangle hitbox;
+	public boolean left, right;
 	
 	public Ball(Frame frame, double velx, double vely, int size) {
 		this.frame = frame;
@@ -28,6 +29,8 @@ public class Ball {
 		this.setVel(velx, vely);
 		this.color = new Color(247, 8, 67);
 		this.hitbox = new Rectangle((int) x, (int) y, size, size);
+		left = true;
+		right = true;
 	}
 	
 	public void update() {
