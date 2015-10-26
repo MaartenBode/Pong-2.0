@@ -22,6 +22,7 @@ public class GraphicsPanel extends JPanel implements ActionListener
 	public Ball ball;
 	public Frame frame;
 	public ScoreBoard scoreboard;
+	public ScoreBoardListener scoreboardListener;
 	public Player player1, player2;
 	
 	public GraphicsPanel(Frame frame)
@@ -40,8 +41,7 @@ public class GraphicsPanel extends JPanel implements ActionListener
 		this.player2 = new Player(this.frame, this.ball, "right");
 		
 		this.addKeyListener(new ControlManager(player1, player2));
-
-		
+		scoreboardListener = new ScoreBoardListener();
 
 	}
 	
@@ -62,8 +62,7 @@ public class GraphicsPanel extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		this.updateBall();
-		new ScoreBoardListener(scoreboard, ball);
-
+		scoreboardListener.update(scoreboard, ball);
 		this.repaint();
 		
 	}

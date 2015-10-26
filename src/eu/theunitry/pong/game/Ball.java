@@ -45,6 +45,15 @@ public class Ball {
 		this.hitbox.move((int) x, (int) y);
 	}
 	
+	public void reset()
+	{
+		this.x = (this.frameWidth / 2) - (this.size / 2);
+		this.y = (this.frameHeight / 2) - (this.size / 2);
+		this.setPos(this.x, this.y);
+		this.setVel(velx, vely);
+		this.hitbox = new Rectangle((int) x, (int) y, size, size);
+	}
+	
 	public void setPos(double x, double y) {
 		this.x = x;
 		this.y = y;

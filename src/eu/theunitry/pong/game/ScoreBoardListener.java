@@ -7,7 +7,7 @@ public class ScoreBoardListener
 	private int score1 = 0;
 	private int score2 = 0;
 	
-	public ScoreBoardListener(ScoreBoard scoreboard, Ball ball)
+	public void update(ScoreBoard scoreboard, Ball ball)
 	{
 		if(ball.scoredRight())
 		{

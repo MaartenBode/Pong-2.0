@@ -59,6 +59,11 @@ public class Player {
 		}
 	}
 	
+	public void reset()
+	{
+		this.setPosition();
+	}
+	
 	public void paintComponent(Graphics g) {
 		g.setColor(color);
 		g.fillRect((int) x, (int) y, width, height);
@@ -85,6 +90,12 @@ public class Player {
 				ball.right = true;
 				ball.velx *= -1;
 			}
+		}
+		
+		if (ball.scoredLeft() || ball.scoredRight())
+		{
+			this.setPosition();
+			ball.reset();
 		}
 	}
 	
